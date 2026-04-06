@@ -49,13 +49,24 @@ Os dados são públicos e disponibilizados pelo governo federal, contendo **1.49
 
 ```
 projetos-fnma/
-├── graficos.py              # gráficos estáticos com matplotlib
-├── graficos_filtros.py      # filtros por região e período
-├── graficos_plotly.py       # dashboard interativo com Plotly
-├── importar.py              # importa o CSV para banco de dados SQLite
-├── fnma.db                  # banco de dados SQLite
-├── projetos-fnma-...csv     # dados originais do FNMA
-└── venv/                    # ambiente virtual Python
+├── data/
+│   ├── projetos-fnma-1990-a-2024-dados-abertos-2025.csv
+│   └── fnma.db
+├── docs/
+│   └── dashboard.html
+├── notebooks/
+│   └── analise_fnma.ipynb
+├── outputs/
+│   ├── dashboard.html
+│   └── graficos...
+├── src/
+│   ├── graficos.py
+│   ├── graficos_filtros.py
+│   ├── graficos_plotly.py
+│   ├── importar.py
+│   └── importar_postgres.py
+├── README.md
+└── requirements.txt
 ```
 
 ---
