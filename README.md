@@ -6,9 +6,11 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Dashboard](https://img.shields.io/badge/Dashboard-GitHub%20Pages-brightgreen)](https://ericfariasds.github.io/projetos-fnma/)
 
-## 🔗 Dashboard interativo
+## Dashboard interativo
 
 [Clique aqui para visualizar o dashboard](https://ericfariasds.github.io/projetos-fnma/)
+
+---
 
 Projeto de análise e visualização de dados dos projetos financiados pelo **Fundo Nacional do Meio Ambiente (FNMA)** entre 1990 e 2024, desenvolvido como parte da minha jornada de aprendizado em Python e análise de dados.
 
