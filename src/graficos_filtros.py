@@ -16,7 +16,7 @@ plt.rcParams.update({
 })
 
 # Lê o arquivo
-df = pd.read_csv('projetos-fnma-1990-a-2024-dados-abertos-2025.csv', sep=None, engine='python')
+df = pd.read_csv('data/projetos-fnma-1990-a-2024-dados-abertos-2025.csv', sep=None, engine='python')
 df.columns = df.columns.str.strip()
 df = df.rename(columns={df.columns[0]: 'Ano'})
 df['Região Geográfica'] = df['Região Geográfica'].str.strip()
