@@ -1,5 +1,17 @@
 # Análise de Projetos do FNMA (1990–2024)
 
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Pandas](https://img.shields.io/badge/Pandas-data%20analysis-150458)
+![Plotly](https://img.shields.io/badge/Plotly-interactive-3D4DB7)
+![License](https://img.shields.io/badge/license-MIT-green)
+[![Dashboard](https://img.shields.io/badge/Dashboard-GitHub%20Pages-brightgreen)](https://ericfariasds.github.io/projetos-fnma/)
+
+## Dashboard interativo
+
+[Clique aqui para visualizar o dashboard](https://ericfariasds.github.io/projetos-fnma/)
+
+---
+
 Projeto de análise e visualização de dados dos projetos financiados pelo **Fundo Nacional do Meio Ambiente (FNMA)** entre 1990 e 2024, desenvolvido como parte da minha jornada de aprendizado em Python e análise de dados.
 
 ---
@@ -37,13 +49,24 @@ Os dados são públicos e disponibilizados pelo governo federal, contendo **1.49
 
 ```
 projetos-fnma/
-├── graficos.py              # gráficos estáticos com matplotlib
-├── graficos_filtros.py      # filtros por região e período
-├── graficos_plotly.py       # dashboard interativo com Plotly
-├── importar.py              # importa o CSV para banco de dados SQLite
-├── fnma.db                  # banco de dados SQLite
-├── projetos-fnma-...csv     # dados originais do FNMA
-└── venv/                    # ambiente virtual Python
+├── data/
+│   ├── projetos-fnma-1990-a-2024-dados-abertos-2025.csv
+│   └── fnma.db
+├── docs/
+│   └── dashboard.html
+├── notebooks/
+│   └── analise_fnma.ipynb
+├── outputs/
+│   ├── dashboard.html
+│   └── graficos...
+├── src/
+│   ├── graficos.py
+│   ├── graficos_filtros.py
+│   ├── graficos_plotly.py
+│   ├── importar.py
+│   └── importar_postgres.py
+├── README.md
+└── requirements.txt
 ```
 
 ---
