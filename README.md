@@ -1,24 +1,20 @@
 # Análise de Projetos do FNMA (1990–2024)
-
+ 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Pandas](https://img.shields.io/badge/Pandas-data%20analysis-150458)
 ![Plotly](https://img.shields.io/badge/Plotly-interactive-3D4DB7)
+![SQLite](https://img.shields.io/badge/SQLite-database-003B57)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-database-336791)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Dashboard](https://img.shields.io/badge/Dashboard-GitHub%20Pages-brightgreen)](https://ericfariasds.github.io/projetos-fnma/)
-
+ 
 ## Dashboard interativo
-
+ 
 [Clique aqui para visualizar o dashboard](https://ericfariasds.github.io/projetos-fnma/)
-
+ 
 ---
-
+ 
 Projeto de análise e visualização de dados dos projetos financiados pelo **Fundo Nacional do Meio Ambiente (FNMA)** entre 1990 e 2024, desenvolvido como parte da minha jornada de aprendizado em Python e análise de dados.
-
----
-
-## Sobre os dados
-
-Os dados são públicos e disponibilizados pelo governo federal, contendo **1.495 projetos** com informações como tema, região geográfica, bioma, estado, instituição executora e valores investidos.
 
 ---
 
@@ -27,8 +23,9 @@ Os dados são públicos e disponibilizados pelo governo federal, contendo **1.49
 - Lê e processa o arquivo CSV com pandas
 - Gera gráficos estáticos com matplotlib
 - Filtra os dados por região, período e tema
-- Cria dashboards interativos com Plotly
+- Cria dashboards interativos com Plotly (exportados como HTML)
 - Analisa os dados em Jupyter Notebook
+- Importa os dados para banco relacional (SQLite ou PostgreSQL)
 
 ---
 
@@ -41,6 +38,7 @@ Os dados são públicos e disponibilizados pelo governo federal, contendo **1.49
 - Plotly
 - Jupyter Notebook
 - SQLite
+- PostgreSQL + SQLAlchemy
 - Git
 
 ---
@@ -50,63 +48,95 @@ Os dados são públicos e disponibilizados pelo governo federal, contendo **1.49
 ```
 projetos-fnma/
 ├── data/
-│   ├── projetos-fnma-1990-a-2024-dados-abertos-2025.csv
-│   └── fnma.db
-├── docs/
-│   └── dashboard.html
-├── notebooks/
-│   └── analise_fnma.ipynb
-├── outputs/
+│   └── projetos-fnma-1990-a-2024-dados-abertos-2025.csv
+├── docs/                        # GitHub Pages — dashboard público
+│   ├── index.html
 │   ├── dashboard.html
-│   └── graficos...
+│   ├── grafico_por_ano.html
+│   ├── grafico_por_regiao.html
+│   └── grafico_por_tema.html
+├── notebooks/
+│   └── analise_fnma.ipynb       # análise exploratória completa
 ├── src/
-│   ├── graficos.py
-│   ├── graficos_filtros.py
-│   ├── graficos_plotly.py
-│   ├── importar.py
-│   └── importar_postgres.py
+│   ├── graficos.py              # gráficos estáticos com matplotlib
+│   ├── graficos_filtros.py      # filtragem por região e período
+│   ├── graficos_plotly.py       # dashboard interativo com Plotly
+│   ├── importar.py              # importação do CSV para SQLite
+│   └── importar_postgres.py     # importação do CSV para PostgreSQL
+├── .gitignore
+├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
+> **Nota:** o arquivo `fnma.db` não está versionado. Ele é gerado localmente ao rodar `importar.py` (No passo 4 abaixo).
 
 ---
 
 ## Como rodar o projeto
 
 **1. Clone o repositório:**
+ 
 ```bash
 git clone https://github.com/ericfariasds/projetos-fnma.git
 cd projetos-fnma
-
 ```
-
+ 
 **2. Crie o ambiente virtual:**
+ 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
-
+ 
 **3. Instale as dependências:**
+ 
 ```bash
-pip install pandas matplotlib seaborn plotly jupyter
+pip install -r requirements.txt
 ```
-
-**4. Rode os gráficos:**
+ 
+**4. Importe os dados para o banco de dados:**
+ 
+Escolha uma das opções abaixo conforme o banco que deseja usar:
+ 
 ```bash
-python3 graficos.py
+# Opção A — SQLite (sem instalação adicional)
+python3 src/importar.py
+ 
+# Opção B — PostgreSQL (requer servidor PostgreSQL rodando localmente)
+# Edite a connection string em src/importar_postgres.py antes de rodar
+python3 src/importar_postgres.py
 ```
-
-**5. Abra o dashboard interativo:**
+ 
+**5. Gere os gráficos:**
+ 
 ```bash
-python3 graficos_plotly.py
-xdg-open dashboard.html
+# Gráficos estáticos com matplotlib
+python3 src/graficos.py
+ 
+# Filtros por região e período
+python3 src/graficos_filtros.py
+ 
+# Dashboard interativo (gera arquivos HTML em docs/)
+python3 src/graficos_plotly.py
 ```
-
+ 
 **6. Abra o Jupyter Notebook:**
+ 
 ```bash
-jupyter notebook
+jupyter notebook notebooks/analise_fnma.ipynb
 ```
 
+---
+
+## Banco de dados
+ 
+O projeto suporta dois bancos relacionais para consulta dos dados via SQL:
+ 
+| Script | Banco | Observação |
+|---|---|---|
+| `src/importar.py` | SQLite | Gera `data/fnma.db` localmente, sem configuração |
+| `src/importar_postgres.py` | PostgreSQL | Requer servidor local; edite a connection string antes de rodar |
+ 
 ---
 
 ## Alguns insights dos dados
@@ -125,8 +155,10 @@ Este projeto foi desenvolvido do zero como parte do meu aprendizado em:
 
 - Leitura e manipulação de dados com pandas
 - Criação de visualizações com matplotlib e Plotly
+- Importação de dados para bancos relacionais (SQLite e PostgreSQL)
 - Uso de ambiente virtual e gerenciamento de dependências
 - Versionamento de código com Git e GitHub
+- Publicação de dashboards via GitHub Pages
 - Análise exploratória de dados com Jupyter Notebook
 
 ---
