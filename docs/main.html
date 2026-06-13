@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FNMA · Três décadas de financiamento ambiental no Brasil</title>
+<meta name="description" content="Panorama interativo dos projetos financiados pelo Fundo Nacional do Meio Ambiente entre 1990 e 2024, com recortes por ano, região, tema e estado." />
+<meta property="og:title" content="FNMA · Três décadas de financiamento ambiental no Brasil" />
+<meta property="og:description" content="Panorama interativo dos projetos do FNMA: 1.743 iniciativas entre 1990 e 2024." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Tailwind (CDN / no build step) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          background: "oklch(0.985 0.005 95)",
+          foreground: "oklch(0.18 0.02 250)",
+          card: "oklch(1 0 0)",
+          primary: "oklch(0.62 0.16 158)",
+          "primary-foreground": "oklch(0.985 0.005 95)",
+          amber: "oklch(0.78 0.16 75)",
+          secondary: "oklch(0.94 0.01 95)",
+          muted: "oklch(0.94 0.01 95)",
+          "muted-foreground": "oklch(0.45 0.02 250)",
+          border: "oklch(0.88 0.01 95)",
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'ui-serif', 'Georgia', 'serif'],
+          sans: ['"Inter"', 'system-ui', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { font-family: "Inter", system-ui, sans-serif; }
+  .font-display { font-family: "Fraunces", ui-serif, Georgia, serif; letter-spacing: -0.02em; }
+</style>
+</head>
+
+<body class="min-h-screen bg-background text-foreground">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="#" class="flex items-baseline gap-2">
+        <span class="font-display text-xl font-semibold tracking-tight">FNMA</span>
+        <span class="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
+          PROJETOS 1990-2024
+        </span>
+      </a>
+      <nav class="hidden gap-8 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground md:flex">
+        <a href="#contexto" class="hover:text-foreground">Contexto</a>
+        <a href="#metodo" class="hover:text-foreground">Método</a>
+        <a href="#dashboard" class="hover:text-foreground">Dashboard</a>
+      </nav>
+      <a href="#dashboard"
+         class="rounded-full border border-foreground/20 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-foreground transition hover:border-foreground hover:bg-foreground hover:text-background">
+        Ver dados
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="relative overflow-hidden border-b border-border">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 pb-24 pt-20 md:grid-cols-12 md:pt-28">
+        <div class="md:col-span-8">
+          <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+            <span class="h-px w-8 bg-foreground/40"></span>
+            Edição 01 · Brasil · 1990-2024
+          </div>
+          <h1 class="mt-8 font-display text-[clamp(2.75rem,7vw,5.5rem)] font-medium leading-[0.95] tracking-tight">
+            O dinheiro<br />
+            do meio ambiente<br />
+            <span class="italic text-primary">tem endereço.</span>
+          </h1>
+          <p class="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground whitespace-pre-line">
+Um retrato editorial do Fundo Nacional do Meio Ambiente.
+O instrumento que, entre 1990 e 2024, apoiou <span class="font-medium text-foreground">1.743 projetos</span> de conservação, educação e gestão territorial em todas as regiões do país.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#dashboard"
+               class="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-background transition hover:bg-primary">
+              Explorar dashboard →
+            </a>
+            <a href="#contexto"
+               class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground">
+              O que é o FNMA?
+            </a>
+          </div>
+        </div>
+
+        <aside class="md:col-span-4 md:border-l md:border-border md:pl-8">
+          <div class="flex flex-col divide-y divide-border">
+            <div class="py-5">
+              <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Projetos apoiados</div>
+              <div class="mt-1.5 font-display text-2xl font-medium tracking-tight">1.743</div>
+            </div>
+            <div class="py-5">
+              <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Período observado</div>
+              <div class="mt-1.5 font-display text-2xl font-medium tracking-tight">1990-2024</div>
+            </div>
+            <div class="py-5">
+              <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Estado líder</div>
+              <!-- TODO: confirme o estado com mais projetos no seu dataset -->
+              <div class="mt-1.5 font-display text-2xl font-medium tracking-tight">[ESTADO]</div>
+            </div>
+            <div class="py-5">
+              <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Tema mais frequente</div>
+              <!-- TODO: confirme o tema mais frequente no seu dataset -->
+              <div class="mt-1.5 font-display text-2xl font-medium tracking-tight">[TEMA]</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTEXTO -->
+    <section id="contexto" class="border-b border-border">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-24 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <span class="font-mono text-xs uppercase tracking-[0.2em] text-primary">01 - Contexto</span>
+          <h2 class="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl">
+            Um fundo nascido com a Rio-92.
+          </h2>
+        </div>
+        <div class="md:col-span-7 md:col-start-6">
+          <p class="font-display text-2xl font-normal leading-snug tracking-tight text-foreground md:text-[1.65rem]">
+            Criado em 1989, o Fundo Nacional do Meio Ambiente foi por décadas a
+            principal porta de entrada de recursos para organizações da
+            sociedade civil que atuam em conservação, manejo de bacias e
+            educação ambiental no Brasil.
+          </p>
+          <p class="mt-6 leading-relaxed text-muted-foreground">
+            Entre 1993 e 2006, o FNMA financiou em média mais de 80 projetos
+            por ano. Após 2008, a curva despenca: novos projetos tornam-se
+            esporádicos, refletindo mudanças no desenho institucional e o
+            esvaziamento orçamentário do fundo. A reativação, em 2024 com 22
+            novos projetos, sinaliza uma tentativa de retomada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section id="metodo" class="border-b border-border bg-secondary/40">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <div class="mb-10 flex items-end justify-between">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-[0.2em] text-primary">02 - Método</span>
+            <h2 class="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl">
+              Como os dados foram lidos.
+            </h2>
+          </div>
+        </div>
+        <dl class="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">
+          <div class="bg-card p-6">
+            <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Fonte</dt>
+            <dd class="mt-3 text-sm leading-relaxed text-foreground">Registros públicos consolidados do FNMA (1990-2024).</dd>
+          </div>
+          <div class="bg-card p-6">
+            <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Recorte</dt>
+            <dd class="mt-3 text-sm leading-relaxed text-foreground">Projetos com convênio firmado, agregados por ano, região, tema e UF.</dd>
+          </div>
+          <div class="bg-card p-6">
+            <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Tratamento</dt>
+            <dd class="mt-3 text-sm leading-relaxed text-foreground">Categorias temáticas reagrupadas em oito eixos para legibilidade.</dd>
+          </div>
+          <div class="bg-card p-6">
+            <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Limites</dt>
+            <dd class="mt-3 text-sm leading-relaxed text-foreground">Os valores aqui não refletem montante financeiro, apenas contagem de projetos.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <span class="font-mono text-xs uppercase tracking-[0.2em] text-primary">03 - Dashboard</span>
+        <h2 class="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl">
+          Explore os dados por ano, região, tema e estado.
+        </h2>
+
+        <!--
+          Embuta aqui o seu dashboard interativo em Plotly.
+          Opção A (mais simples): iframe apontando para o dashboard.html já publicado.
+          Opção B: cole o output de fig.to_html(full_html=False, include_plotlyjs='cdn')
+                   direto neste lugar, sem o iframe.
+        -->
+        <div class="mt-10 overflow-hidden rounded-lg border border-border bg-card">
+          <iframe
+            src="dashboard.html"
+            title="Dashboard FNMA"
+            width="100%"
+            height="900"
+            style="border:0; display:block;"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="border-t border-border bg-foreground text-background">
+      <div class="mx-auto max-w-6xl px-6 py-24">
+        <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-amber">04 - Leitura</span>
+        <p class="mt-6 max-w-3xl font-display text-3xl font-normal leading-tight tracking-tight md:text-5xl">
+          A história do FNMA é também a história da política ambiental
+          brasileira: <span class="italic text-amber">expansão nos anos 1990,</span>
+          intermitência nos 2010, reconstrução em curso.
+        </p>
+        <div class="mt-12 flex flex-wrap items-center gap-6 font-mono text-[11px] uppercase tracking-[0.18em] text-background/60">
+          <a href="https://ericfariasds.github.io/projetos-fnma/dashboard.html"
+             target="_blank" rel="noreferrer"
+             class="text-amber hover:underline">
+            Dashboard original ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border bg-background">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+      <div class="font-mono uppercase tracking-[0.18em]">PROJETO FNMA · POR ERIC FARIAS</div>
+      <div class="font-mono uppercase tracking-[0.18em]">Dados agregados · uso editorial e educativo</div>
+    </div>
+  </footer>
+
+</body>
+</html>
