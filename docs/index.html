@@ -13,7 +13,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Tailwind (CDN / no build step) -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -113,13 +112,11 @@ O instrumento que, entre 1990 e 2024, apoiou <span class="font-medium text-foreg
             </div>
             <div class="py-5">
               <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Estado líder</div>
-              <!-- TODO: confirme o estado com mais projetos no seu dataset -->
-              <div class="mt-1.5 font-display text-2xl font-medium tracking-tight">[ESTADO]</div>
+              <div class="mt-1.5 font-display text-2xl font-medium tracking-tight">São Paulo</div>
             </div>
             <div class="py-5">
               <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Tema mais frequente</div>
-              <!-- TODO: confirme o tema mais frequente no seu dataset -->
-              <div class="mt-1.5 font-display text-2xl font-medium tracking-tight">[TEMA]</div>
+              <div class="mt-1.5 font-display text-2xl font-medium tracking-tight">Educação Ambiental</div>
             </div>
           </div>
         </aside>
@@ -193,12 +190,6 @@ O instrumento que, entre 1990 e 2024, apoiou <span class="font-medium text-foreg
           Explore os dados por ano, região, tema e estado.
         </h2>
 
-        <!--
-          Embuta aqui o seu dashboard interativo em Plotly.
-          Opção A (mais simples): iframe apontando para o dashboard.html já publicado.
-          Opção B: cole o output de fig.to_html(full_html=False, include_plotlyjs='cdn')
-                   direto neste lugar, sem o iframe.
-        -->
         <div class="mt-10 overflow-hidden rounded-lg border border-border bg-card">
           <iframe
             src="dashboard.html"
