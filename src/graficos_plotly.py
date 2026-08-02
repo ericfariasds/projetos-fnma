@@ -16,7 +16,7 @@ df['Região Geográfica'] = df['Região Geográfica'].str.strip()
 pio.templates["fnma"] = go.layout.Template(
     layout=go.Layout(
         font=dict(family="Inter, -apple-system, sans-serif", size=13, color="#1a2e2a"),
-        title=dict(font=dict(size=16, color="#0d2818", family="Inter, sans-serif"), x=0.02, xanchor="left"),
+        title=dict(font=dict(size=16, color="#0d2818", family="Inter, sans-serif"), x=0.5, xanchor="center"),
         colorway=["#0d3b2e", "#1f6b4f", "#3d9970", "#6fb98f", "#a3d4b5", "#d1e9d9"],
         plot_bgcolor="white",
         paper_bgcolor="white",
@@ -196,7 +196,8 @@ fig4.update_layout(
     title_font_size=20,
     title_x=0.5,
     showlegend=False,
-    height=800
+    height=800,
+    margin=dict(l=160, r=40, t=80, b=40)
 )
 
 fig4.write_html('docs/dashboard.html')
