@@ -2,9 +2,8 @@ import pandas as pd
 import sqlite3
 
 # Lê o CSV
-df = pd.read_csv('projetos-fnma-1990-a-2024-dados-abertos-2025.csv', sep=None, engine='python')
-df.columns = df.columns.str.strip()
-df = df.rename(columns={df.columns[0]: 'Ano'})
+df = pd.read_csv('data/fnma_1990_2024.csv', sep=None, engine='python')
+df.columns = [c.strip().replace('\ufeff', '') for c in df.columns]
 df['Região Geográfica'] = df['Região Geográfica'].str.strip()
 
 # Renomeia colunas para facilitar no SQL (sem espaços ou caracteres especiais)
@@ -30,9 +29,9 @@ df = df.rename(columns={
 })
 
 # Cria o banco de dados
-conn = sqlite3.connect('fnma.db')
+conn = sqlite3.connect('data/fnma.db')
 df.to_sql('projetos', conn, if_exists='replace', index=False)
 conn.close()
 
 print(f"{len(df)} projetos importados com sucesso!")
-print("Banco de dados criado: fnma.db")
+print("Banco de dados criado: data/fnma.db")

@@ -16,10 +16,16 @@ plt.rcParams.update({
     'axes.facecolor': '#f8f8f8'
 })
 
+# Paleta única do projeto (mesma identidade visual usada nos gráficos Plotly do site)
+VERDE_PRINCIPAL = '#1b4332'
+VERDE_TENDENCIA = '#0d3b2e'
+VERDES_TEMA = ['#d8f3dc', '#b7e4c7', '#95d5b2', '#74c69d',
+               '#52b788', '#40916c', '#2d6a4f', '#1b4332']
+VERDES_REGIAO = ['#0d3b2e', '#1f6b4f', '#3d9970', '#6fb98f', '#a3d4b5']
+
 # Lê o arquivo
-df = pd.read_csv('data/projetos-fnma-1990-a-2024-dados-abertos-2025.csv', sep=None, engine='python')
-df.columns = df.columns.str.strip()
-df = df.rename(columns={df.columns[0]: 'Ano'})
+df = pd.read_csv('data/fnma_1990_2024.csv', sep=None, engine='python')
+df.columns = [c.strip().replace('\ufeff', '') for c in df.columns]
 
 # -----------------------------------------------
 # Gráfico 1 - Projetos por ano
@@ -28,12 +34,12 @@ por_ano = df.groupby('Ano').size()
 
 fig, ax = plt.subplots(figsize=(16, 6))
 
-bars = ax.bar(por_ano.index, por_ano.values, color='#3266ad', width=0.7, zorder=3)
+bars = ax.bar(por_ano.index, por_ano.values, color=VERDE_PRINCIPAL, width=0.7, zorder=3)
 
 z = np.polyfit(range(len(por_ano)), por_ano.values, 3)
 p = np.poly1d(z)
 ax.plot(por_ano.index, p(range(len(por_ano))),
-        color='#e74c3c', linewidth=2, linestyle='--', label='Tendência')
+        color=VERDE_TENDENCIA, linewidth=2, linestyle='--', label='Tendência')
 ax.legend()
 
 # Adiciona o número em cima de cada barra
@@ -50,20 +56,18 @@ ax.set_xticks(por_ano.index)
 ax.set_xticklabels(por_ano.index, rotation=45, ha='right', fontsize=9)
 
 plt.tight_layout()
-plt.savefig('projetos_por_ano.png', bbox_inches='tight')
+plt.savefig('outputs/projetos_por_ano.png', bbox_inches='tight')
 print("Salvo: projetos_por_ano.png")
 plt.close()
 
 # -----------------------------------------------
 # Gráfico 2 - Projetos por tema
 # -----------------------------------------------
-por_tema = df['Tema'].value_counts().head(8).sort_values()
-
-CORES = ['#c6dbef','#9ecae1','#6baed6','#4292c6','#2171b5','#08519c','#08306b','#041f4a']
+por_tema = df['Tema'].str.strip().value_counts().head(8).sort_values()
 
 fig, ax = plt.subplots(figsize=(12, 7))
 
-bars = ax.barh(por_tema.index, por_tema.values, color=CORES, zorder=3)
+bars = ax.barh(por_tema.index, por_tema.values, color=VERDES_TEMA, zorder=3)
 
 # Adiciona o número no final de cada barra
 for bar in bars:
@@ -76,7 +80,7 @@ ax.set_xlabel('Quantidade de projetos', fontsize=12)
 ax.set_xlim(0, por_tema.max() + 40)
 
 plt.tight_layout()
-plt.savefig('projetos_por_tema.png', bbox_inches='tight')
+plt.savefig('outputs/projetos_por_tema.png', bbox_inches='tight')
 print("Salvo: projetos_por_tema.png")
 plt.close()
 
@@ -85,16 +89,14 @@ plt.close()
 # -----------------------------------------------
 por_regiao = df['Região Geográfica'].str.strip().value_counts()
 
-CORES_REGIAO = ['#3266ad','#1D9E75','#D85A30','#7F77DD','#BA7517']
-
 fig, ax = plt.subplots(figsize=(8, 8))
 
 wedges, texts, autotexts = ax.pie(
     por_regiao.values,
     labels=por_regiao.index,
     autopct='%1.1f%%',
-    colors=CORES_REGIAO,
-    startangle=140,
+    colors=VERDES_REGIAO,
+    startangle=90,
     pctdistance=0.75,
     wedgeprops={'edgecolor': 'white', 'linewidth': 2}
 )
@@ -110,7 +112,7 @@ for autotext in autotexts:
 ax.set_title('Projetos por região geográfica', fontsize=16, fontweight='bold', pad=20)
 
 plt.tight_layout()
-plt.savefig('projetos_por_regiao.png', bbox_inches='tight')
+plt.savefig('outputs/projetos_por_regiao.png', bbox_inches='tight')
 print("Salvo: projetos_por_regiao.png")
 plt.close()
 
