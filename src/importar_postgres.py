@@ -29,7 +29,7 @@ df = df.rename(columns={
     'Edital ou Termo de Referência de Origem do Projeto': 'edital'
 })
 
-# Conecta ao PostgreSQL — troque 'sua_senha' pela senha que você criou
+# Conecta ao PostgreSQL - troque 'sua_senha' pela senha que você criou
 engine = create_engine('postgresql://postgres:fnma1234@localhost:5432/fnma')
 
 # Importa os dados

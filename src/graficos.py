@@ -22,7 +22,7 @@ df.columns = df.columns.str.strip()
 df = df.rename(columns={df.columns[0]: 'Ano'})
 
 # -----------------------------------------------
-# Gráfico 1 — Projetos por ano
+# Gráfico 1 - Projetos por ano
 # -----------------------------------------------
 por_ano = df.groupby('Ano').size()
 
@@ -55,7 +55,7 @@ print("Salvo: projetos_por_ano.png")
 plt.close()
 
 # -----------------------------------------------
-# Gráfico 2 — Projetos por tema
+# Gráfico 2 - Projetos por tema
 # -----------------------------------------------
 por_tema = df['Tema'].value_counts().head(8).sort_values()
 
@@ -81,7 +81,7 @@ print("Salvo: projetos_por_tema.png")
 plt.close()
 
 # -----------------------------------------------
-# Gráfico 3 — Projetos por região
+# Gráfico 3 - Projetos por região
 # -----------------------------------------------
 por_regiao = df['Região Geográfica'].str.strip().value_counts()
 

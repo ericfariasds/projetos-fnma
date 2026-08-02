@@ -22,7 +22,7 @@ df = df.rename(columns={df.columns[0]: 'Ano'})
 df['Região Geográfica'] = df['Região Geográfica'].str.strip()
 
 # -----------------------------------------------
-# Filtro 1 — Projetos de uma região específica
+# Filtro 1 - Projetos de uma região específica
 # -----------------------------------------------
 regiao = 'Sul'  # ← mude aqui para explorar outras regiões
 df_regiao = df[df['Região Geográfica'] == regiao]
@@ -38,7 +38,7 @@ for bar in ax.patches:
         ax.text(bar.get_x() + bar.get_width()/2, h + 0.3,
                 str(int(h)), ha='center', va='bottom', fontsize=8, color='#444')
 
-ax.set_title(f'Projetos por ano — Região {regiao}', fontsize=16, fontweight='bold', pad=15)
+ax.set_title(f'Projetos por ano - Região {regiao}', fontsize=16, fontweight='bold', pad=15)
 ax.set_xlabel('Ano')
 ax.set_ylabel('Quantidade de projetos')
 ax.set_xticks(por_ano_regiao.index)
@@ -49,7 +49,7 @@ print(f"Salvo: projetos_{regiao.lower()}_por_ano.png")
 plt.close()
 
 # -----------------------------------------------
-# Filtro 2 — Projetos de um período específico
+# Filtro 2 - Projetos de um período específico
 # -----------------------------------------------
 ano_inicio = 2000  # ← mude aqui
 ano_fim = 2009     # ← mude aqui
@@ -67,7 +67,7 @@ for bar in bars:
     ax.text(w + 1, bar.get_y() + bar.get_height()/2,
             str(int(w)), va='center', fontsize=10, color='#444')
 
-ax.set_title(f'Principais temas — {ano_inicio} a {ano_fim}', fontsize=16, fontweight='bold', pad=15)
+ax.set_title(f'Principais temas - {ano_inicio} a {ano_fim}', fontsize=16, fontweight='bold', pad=15)
 ax.set_xlabel('Quantidade de projetos')
 ax.set_xlim(0, por_tema_periodo.max() + 30)
 plt.tight_layout()
@@ -76,7 +76,7 @@ print(f"Salvo: temas_{ano_inicio}_{ano_fim}.png")
 plt.close()
 
 # -----------------------------------------------
-# Filtro 3 — Comparar regiões lado a lado
+# Filtro 3 - Comparar regiões lado a lado
 # -----------------------------------------------
 regioes = ['Norte', 'Nordeste', 'Sul', 'Sudeste', 'Centro-Oeste']
 cores_regioes = ['#7F77DD', '#D85A30', '#1D9E75', '#3266ad', '#BA7517']
