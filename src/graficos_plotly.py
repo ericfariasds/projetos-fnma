@@ -108,13 +108,13 @@ fig3 = px.pie(
     values='Projetos',
     title=f'Projetos por região geográfica · {int(por_regiao["Projetos"].sum())} projetos',
     color_discrete_sequence=['#0d3b2e', '#1f6b4f', '#3d9970', '#6fb98f', '#a3d4b5'],
-    hole=0.45,  # donut em vez de pizza cheia - abre espaço pro total no centro
+    hole=0.45,
 )
 
 fig3.update_traces(
     textposition='outside',
     textinfo='percent+label',
-    sort=False,  # respeita a ordem já definida acima (maior → menor)
+    sort=False,
 )
 fig3.add_annotation(
     text=f"<b>{int(por_regiao['Projetos'].sum())}</b><br>projetos",
@@ -192,13 +192,17 @@ fig4.add_trace(go.Bar(
 ), row=2, col=2)
 
 fig4.update_layout(
-    title_text='Dashboard FNMA: Projetos 1990-2024',
-    title_font_size=20,
-    title_x=0.5,
+    title=dict(
+        text='Dashboard FNMA: Projetos 1990-2024',
+        font=dict(size=20, color="#0d2818"),
+        x=0.02, xanchor='left', 
+        y=0.98, yanchor='top',
+    ),
     showlegend=False,
-    height=800,
-    margin=dict(l=160, r=40, t=80, b=40)
+    height=850,
+    margin=dict(l=160, r=40, t=110, b=40),
 )
+fig4.update_yaxes(tickfont=dict(size=10), row=2, col=1)
 
 fig4.write_html('docs/dashboard.html')
 print("Salvo: dashboard.html")
