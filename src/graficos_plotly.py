@@ -65,7 +65,7 @@ fig1.update_layout(height=ALTURA_PADRAO)
 fig1.update_xaxes(title_text='Ano')
 fig1.update_yaxes(title_text='Número de Projetos')
 
-fig1.write_html('outputs/grafico_por_ano.html')
+fig1.write_html('docs/grafico_por_ano.html')
 print("Salvo: grafico_por_ano.html")
 
 # -----------------------------------------------
@@ -92,7 +92,7 @@ fig2.update_layout(height=500, showlegend=False)
 fig2.update_yaxes(title_text='')
 fig2.update_xaxes(title_text='Projetos')
 
-fig2.write_html('outputs/grafico_por_tema.html')
+fig2.write_html('docs/grafico_por_tema.html')
 print("Salvo: grafico_por_tema.html")
 
 # -----------------------------------------------
@@ -121,7 +121,7 @@ fig3.add_annotation(
     x=0.5, y=0.5, showarrow=False, font=dict(size=14, color="#0d2818")
 )
 fig3.update_layout(height=ALTURA_PADRAO, showlegend=False)
-fig3.write_html('outputs/grafico_por_regiao.html')
+fig3.write_html('docs/grafico_por_regiao.html')
 print("Salvo: grafico_por_regiao.html")
 
 # -----------------------------------------------
@@ -199,7 +199,7 @@ fig4.update_layout(
     height=800
 )
 
-fig4.write_html('outputs/dashboard.html')
+fig4.write_html('docs/dashboard.html')
 print("Salvo: dashboard.html")
 
 print("\nTodos os gráficos gerados com sucesso!")
