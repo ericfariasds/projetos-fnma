@@ -8,6 +8,8 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Site](https://img.shields.io/badge/Site-GitHub%20Pages-brightgreen)](https://ericfariasds.github.io/projetos-fnma/)
 
+![Preview do site](assets/readme/hero.png)
+
 ## Site do projeto
 
 [Clique aqui para visualizar](https://ericfariasds.github.io/projetos-fnma/)
@@ -49,6 +51,8 @@ Projeto de análise e visualização de dados dos projetos financiados pelo **Fu
 
 ```
 projetos-fnma/
+├── assets/
+│   └── readme/                   # imagens usadas neste README
 ├── data/
 │   ├── fnma_1990_2024.csv
 │   └── fnma.db                  # gerado localmente, não versionado
@@ -152,6 +156,18 @@ Antes de qualquer análise, os dados brutos foram inspecionados e tratados no no
 - **Inconsistência de texto:** colunas categóricas (`Tema`, `Região Geográfica`, `Bioma`, etc.) tinham espaços extras criando categorias duplicadas - corrigido, reduzindo `Tema` de 16 para 13 categorias reais.
 - **Valores monetários:** as colunas de valor vinham como texto no formato brasileiro (`41.212,07`) - convertidas para número.
 - **Datas e duração:** convertidas para `datetime`; identificados **2 registros com duração de vigência negativa** (data de fim anterior à de assinatura), um erro de digitação na base original, documentado e excluído apenas da análise de duração.
+
+---
+
+## Prévia
+
+**Dashboard interativo**, explorável por ano, região, tema e estado:
+
+![Dashboard interativo](assets/readme/dashboard.png)
+
+**Cruzamento tema x região**, um dos achados analíticos do notebook:
+
+![Heatmap tema x região](assets/readme/heatmap.png)
 
 ---
 
